@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen p-6">
+
+    <div class="bg-white shadow-2xl rounded-2xl w-full max-w-6xl grid md:grid-cols-2 overflow-hidden">
+
+        <!-- LEFT SIDE -->
+        <div class="p-10">
+
+            <div class="bg-gradient-to-r from-blue-700 to-blue-500 text-white font-bold text-2xl p-5 rounded-lg mb-8">
+                BMI CALCULATOR
+            </div>
+
+            <div class="flex gap-3 mb-8">
+                <button class="px-5 py-2 border rounded-lg">Standard</button>
+                <button class="px-5 py-2 bg-blue-600 text-white rounded-lg">Metric</button>
+            </div>
+
+            <!-- Height -->
+            <div class="mb-6">
+                <label class="block text-lg font-semibold mb-2">Height</label>
+                <div class="flex items-center gap-3">
+                    <input type="number" id="height" placeholder="Enter height"
+                        class="border w-full p-3 rounded-lg outline-none" />
+                    <span class="text-gray-500">cm</span>
+                </div>
+            </div>
+
+            <!-- Weight -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold mb-2">Weight</label>
+                <div class="flex items-center gap-3">
+                    <input type="number" id="weight" placeholder="Enter weight"
+                        class="border w-full p-3 rounded-lg outline-none" />
+                    <span class="text-gray-500">kg</span>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex gap-4">
+                <button onclick="calculateBMI()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold">
+                    Calculate Your BMI
+                </button>
+
+                <button onclick="resetFields()" class="border border-gray-400 px-6 py-3 rounded-full font-semibold">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="bg-gray-50 p-10">
+
+            <h2 class="text-4xl font-bold text-center mb-6">
+                Your BMI is <span id="result">0.0</span>
+            </h2>
+
+            <!-- BMI BAR -->
+            <div class="w-full h-5 rounded-full overflow-hidden flex mb-8">
+                <div class="bg-gray-300 w-1/4"></div>
+                <div class="bg-green-500 w-1/4"></div>
+                <div class="bg-blue-500 w-1/4"></div>
+                <div class="bg-purple-600 w-1/4"></div>
+            </div>
+
+            <!-- CATEGORY -->
+            <div id="categoryBox" class="p-5 rounded-xl bg-white shadow text-center">
+                <h3 class="text-2xl font-bold mb-2">Category</h3>
+                <p id="category" class="text-xl text-blue-600 font-semibold">
+                    ---
+                </p>
+            </div>
+
+            <!-- TABLE -->
+            <div class="mt-10">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="py-3">BMI Category</th>
+                            <th class="py-3">Weight Range</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="py-3 text-gray-500">Underweight</td>
+                            <td>Less than 18.5</td>
+                        </tr>
+
+                        <tr class="border-b">
+                            <td class="py-3 text-green-600">Healthy</td>
+                            <td>18.5 - 24.9</td>
+                        </tr>
+
+                        <tr class="border-b">
+                            <td class="py-3 text-blue-600">Overweight</td>
+                            <td>25.0 - 29.9</td>
+                        </tr>
+
+                        <tr>
+                            <td class="py-3 text-purple-700">Obesity</td>
+                            <td>More than 29.9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Bmi calculator.js"></script>
+</body>
+
+</html>
